@@ -20,7 +20,7 @@
     >
     <div class="panel">
         <p>
-            Tweetamons is the result of two ideas. First, we wanted to create an
+            Tweetamon is the result of two ideas. First, we wanted to create an
             NFT smart contract where everyone can have an unique NFT and second,
             we want to create a Twitter game.
         </p>
