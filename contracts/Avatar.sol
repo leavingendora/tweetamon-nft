@@ -14,7 +14,7 @@ contract Avatar is ERC721URIStorage, Ownable {
 
     constructor(address priceFeedAddress, uint256 usd)
         public
-        ERC721("YourNFTAvatar", "UNFT")
+        ERC721("Tweetamon", "UNFT")
     {
         _counter = 0;
         _setUsdFee(usd);
@@ -43,11 +43,6 @@ contract Avatar is ERC721URIStorage, Ownable {
         return uint256((usdFee) / uint256(price));
     }
 
-    // function getEth() public view returns (uint256) {
-    //     (, int256 price, , , ) = _ethUsdPriceFeed.latestRoundData();
-    //     return uint256(price);
-    // }
-
     function setUsdFee(uint256 usd) public onlyOwner {
         _setUsdFee(usd);
     }
@@ -56,5 +51,9 @@ contract Avatar is ERC721URIStorage, Ownable {
         // 10^8: eth/usd feed is provided in 8 digits precise
         // 10^18: requiredWei = (usdfee * 10^18) / price
         usdFee = usd * (10**(8 + 18));
+    }
+
+    function withdraw() public payable onlyOwner {
+        payable(msg.sender).transfer(address(this).balance);
     }
 }

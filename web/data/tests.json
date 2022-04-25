@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "Avatar": "2f8cd89ef9f011167653b78ca587a75bba9e541b",
+    "Avatar": "c5b6486c69633c386963c30bc7a8fdd23dbb95d8",
     "MockV3Aggregator": "9e734e161b5cafcca52a917f10266f5a8bc05b28",
     "OpenZeppelin/openzeppelin-contracts@4.5.0/ERC721": "a43935dd434126ae8d538411eca992dffe8348cd",
     "OpenZeppelin/openzeppelin-contracts@4.5.0/Strings": "1ce946f6a4eaa185320328620ccf999b9e86db7c"
@@ -9,15 +9,40 @@
     "tests/test_avatar.py": {
       "coverage": false,
       "isolated": false,
-      "results": ".....",
-      "sha1": "0f8749fc791adf263ca7517b491c18a12f4d42aa",
+      "results": ".......",
+      "sha1": "927fdd2ce6bffdb056eb5f65882e8f310d48e896",
       "txhash": [
-        "47319b27f4ee18fb5592776c37ca1c58bf43e7e0"
+        "300b3228a142342e37542e1c58512d67234653f4",
+        "c815fa9fbdcd344d19af6efc9a9c67278f420bb0"
       ]
     }
   },
   "tx": {
-    "47319b27f4ee18fb5592776c37ca1c58bf43e7e0": {
+    "300b3228a142342e37542e1c58512d67234653f4": {
+      "Avatar": {
+        "0": [
+          [],
+          [],
+          []
+        ],
+        "1": [
+          [],
+          [],
+          []
+        ],
+        "12": [
+          [],
+          [],
+          []
+        ],
+        "7": [
+          [],
+          [],
+          []
+        ]
+      }
+    },
+    "c815fa9fbdcd344d19af6efc9a9c67278f420bb0": {
       "Avatar": {
         "1": [
           [],
@@ -26,12 +51,12 @@
         ],
         "12": [
           [
-            14,
-            23
+            15,
+            24
           ],
           [
-            71,
-            72
+            72,
+            73
           ],
           []
         ],

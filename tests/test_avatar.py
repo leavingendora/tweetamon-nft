@@ -12,18 +12,18 @@ def deploy(prize=10):
 
 def test_deploy_price():
     account, contract = deploy(10)
-    assert contract.usdFee() == 10 * 10**(8+18)
+    assert contract.usdFee() == 10 * 10 ** (8 + 18)
 
 
 def test_setUsdFee():
     account, contract = deploy(10)
     contract.setUsdFee(15)
-    assert contract.usdFee() == 15 * 10**(8+18)
+    assert contract.usdFee() == 15 * 10 ** (8 + 18)
 
 
 def test_getRequiredWei():
     account, contract = deploy(10)
-    assert contract.usdFee() == 10 * 10**(8+18)
+    assert contract.usdFee() == 10 * 10 ** (8 + 18)
     wei = contract.getRequiredWei()
     expected_value = 10 * 10**18 / (MOCK_PRICE / 100000000)
     assert wei < expected_value + 10 and wei > expected_value - 10
@@ -57,3 +57,30 @@ def test_createAvatar_ownership():
     # Check if unminted has no owner
     with pytest.raises(exceptions.VirtualMachineError):
         contract.ownerOf(id + 1)
+
+
+def test_withdraw():
+    account, contract = deploy(10)
+    non_owner = get_account(index=1)
+
+    start_balance = account.balance()
+    wei = contract.getRequiredWei() + 10
+    tx = contract.createAvatar("test", {"from": non_owner, "value": wei})
+    tx.wait(1)
+
+    tx2 = contract.withdraw({"from": account})
+    tx2.wait(1)
+
+    assert account.balance() > start_balance
+
+
+def test_withdraw_abuse():
+    account, contract = deploy(10)
+    non_owner = get_account(index=1)
+
+    wei = contract.getRequiredWei() + 10
+    tx = contract.createAvatar("test", {"from": account, "value": wei})
+    tx.wait(1)
+
+    with pytest.raises(exceptions.VirtualMachineError):
+        contract.withdraw({"from": non_owner})
