@@ -2,11 +2,7 @@
 Tweetamon is the result of two ideas. First, we wanted to create an NFT smart contract where everyone can have an unique NFT and second, we want to create a Twitter game.
 The game is currently in planning and requires the avatar to be used as a Twitter profile picture. There is no planned release date for that game yet.
 
-## Minting your NFT
-Not yet.
-
-
-## Rinkeby Testnet
+## Minting on Rinkeby Testnet
 To mint a NFT on [rinkeby testnet](https://tweetamon-rinkeby.surge.sh/)
 
 Faucets for rinkeby:
